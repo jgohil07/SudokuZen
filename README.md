@@ -58,28 +58,12 @@ python3 -m http.server 8000
 Then open <http://localhost:8000>. Opening `index.html` as a `file://` URL will not work, because
 ES modules and the service worker both require a real origin.
 
-## Deploying to GitHub Pages
-
-1. Push everything to `main`.
-2. Settings ▸ Pages ▸ Source: **Deploy from a branch**, branch `main`, folder `/ (root)`.
-   If the dropdown only offers GitHub Actions, choose **Static HTML**.
-3. The committed `.nojekyll` stops Jekyll from processing the files.
-
 ## Keyboard
 
 <kbd>1</kbd>–<kbd>9</kbd> place · <kbd>Shift</kbd>+<kbd>1</kbd>–<kbd>9</kbd> pencil mark ·
 <kbd>0</kbd>/<kbd>Backspace</kbd> erase · arrows or <kbd>WASD</kbd> move · <kbd>N</kbd> notes ·
 <kbd>M</kbd> auto marks · <kbd>H</kbd> hint · <kbd>Ctrl</kbd>+<kbd>Z</kbd> undo ·
 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> redo · <kbd>Space</kbd> pause · <kbd>Esc</kbd> deselect.
-
-## Tests
-
-Open `tests.html` in a browser. It runs the puzzle generator, solver, conflict detection,
-hint logic and persistence round-trip, and prints pass/fail for each. No tooling required.
-
-## Easter egg
-
-There is one. Two ways in, both on the front page.
 
 ## Disclaimer
 

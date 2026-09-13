@@ -159,7 +159,7 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:'Instrument San
         <div class="meter">
           <span class="badge" id="dailyBadge" hidden>Daily</span>
           <span class="slot"><span class="label">Err</span><span class="val" id="mMistakes">0/3</span></span>
-          <span class="slot"><span class="label">Hint</span><span class="val" id="mHints">4</span></span>
+          <span class="slot hints"><span class="label">Hint</span><span class="val" id="mHints">4</span></span>
           <div class="clock">
             <span class="t" id="mTime" aria-live="off">00:00</span>
             <button type="button" id="pauseBtn" aria-label="Pause the timer">
@@ -200,13 +200,13 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:'Instrument San
       </div>
 
       <div class="row-actions">
-        <button class="btn grow" type="button" id="newBtn">
-          <svg aria-hidden="true"><use href="#i-new"></use></svg>New puzzle
+        <button class="btn grow" type="button" id="newBtn" aria-label="Start a new puzzle">
+          <svg aria-hidden="true"><use href="#i-new"></use></svg>New
         </button>
-        <button class="btn grow" type="button" id="dailyBtn">
+        <button class="btn grow" type="button" id="dailyBtn" aria-label="Play today's daily puzzle">
           <svg aria-hidden="true"><use href="#i-daily"></use></svg>Daily
         </button>
-        <button class="btn grow" type="button" id="shareBtn">
+        <button class="btn grow" type="button" id="shareBtn" aria-label="Copy a link to this puzzle">
           <svg aria-hidden="true"><use href="#i-share"></use></svg>Share
         </button>
       </div>
