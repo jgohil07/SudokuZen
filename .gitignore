@@ -102,3 +102,16 @@ build/
 *.log
 npm-debug.log*
 yarn-error.log*
+
+# ─── Reports, status updates and reviews ─────────────────────────────────
+# Timestamped assistant output (e.g. report-20260914-142215.md). Same rule as
+# the planning files above: use `git add -f` if you ever want one tracked.
+report-*.md
+*-report-*.md
+*.report.md
+status-*.md
+*-status-*.md
+review-*.md
+*-review-*.md
+findings-*.md
+summary-*.md
