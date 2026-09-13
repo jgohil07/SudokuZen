@@ -1,38 +1,104 @@
-# macOS
+# ─── macOS ───────────────────────────────────────────────────────────────
 .DS_Store
+.DS_Store?
+._*
 .AppleDouble
 .LSOverride
-._*
 .Spotlight-V100
-.Trashes
+.DocumentRevisions-V100
 .fseventsd
 .TemporaryItems
+.Trashes
 .VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
 Icon?
 
-# Windows / Linux
+# ─── Windows ─────────────────────────────────────────────────────────────
 Thumbs.db
+Thumbs.db:encryptable
 ehthumbs.db
+ehthumbs_vista.db
 Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# ─── Linux ───────────────────────────────────────────────────────────────
 *~
 .directory
+.Trash-*
+.nfs*
 
-# AI / editor tooling
+# ─── AI assistants: config, transcripts and scratch output ───────────────
 .claude/
+.claude*
 CLAUDE.md
+CLAUDE.local.md
 .cursor/
+.cursorrules
+.cursorignore
 .aider*
+.continue/
+.windsurfrules
+.codeium/
+.gemini/
+.opencode/
+.antigravity/
+.cagent/
+.ai/
+
+# ─── Planning / progress scratch files ───────────────────────────────────
+# Working notes an assistant or IDE may drop in the repo. If you ever want a
+# real one of these tracked, add it with `git add -f`.
+PLAN.md
+PLANS.md
+PROGRESS.md
+NOTES.local.md
+TODO.local.md
+SCRATCH.md
+plan-*.md
+progress-*.md
+*.plan.md
+*.progress.md
+.plans/
+.progress/
+.scratch/
+scratchpad/
+
+# ─── Secrets and local environment ───────────────────────────────────────
+.env
+.env.*
+!.env.example
+!.env.sample
+*.local
+secrets.*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+.netrc
+.npmrc
+
+# ─── Editors ─────────────────────────────────────────────────────────────
 .vscode/
+!.vscode/extensions.json
 .idea/
 *.swp
 *.swo
+*.sublime-workspace
 
-# secrets and local env — nothing here is used by the site, but keep it out anyway
-.env
-.env.*
-*.local
-
-# stray build output (this project has no build step)
+# ─── Build output and logs ───────────────────────────────────────────────
+# This project is static and has no build step; these are here so stray
+# tooling output never lands in a commit.
 node_modules/
 dist/
+build/
+.cache/
 *.log
+npm-debug.log*
+yarn-error.log*
