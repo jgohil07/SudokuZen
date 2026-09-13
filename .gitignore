@@ -1,0 +1,38 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+Icon?
+
+# Windows / Linux
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*~
+.directory
+
+# AI / editor tooling
+.claude/
+CLAUDE.md
+.cursor/
+.aider*
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# secrets and local env — nothing here is used by the site, but keep it out anyway
+.env
+.env.*
+*.local
+
+# stray build output (this project has no build step)
+node_modules/
+dist/
+*.log

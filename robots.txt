@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# The game's JS must stay crawlable — the board is built at runtime.
+
+Sitemap: https://jgohil07.github.io/SudokuZen/sitemap.xml

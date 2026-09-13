@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Free Online Sudoku — 4 difficulties, no sign-up | Sudoku Zen</title>
+<meta name="description" content="Play free online Sudoku with four difficulty levels, pencil marks, hints and a daily puzzle. Every puzzle has exactly one solution. No sign-up, no ads, works offline, and your progress saves in your browser.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://jgohil07.github.io/SudokuZen/">
+<meta name="author" content="Jay">
+
+<meta name="theme-color" content="#0d7d72" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#08090a" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Sudoku Zen">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sudoku Zen">
+<meta property="og:url" content="https://jgohil07.github.io/SudokuZen/">
+<meta property="og:title" content="Sudoku Zen — free online Sudoku, no sign-up">
+<meta property="og:description" content="Four difficulty levels, pencil marks, hints and a daily puzzle. Every puzzle has exactly one solution. Plays offline and saves your progress locally.">
+<meta property="og:image" content="https://jgohil07.github.io/SudokuZen/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sudoku Zen — a minimalist Sudoku board">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sudoku Zen — free online Sudoku, no sign-up">
+<meta name="twitter:description" content="Four difficulty levels, pencil marks, hints and a daily puzzle. Every puzzle has exactly one solution.">
+<meta name="twitter:image" content="https://jgohil07.github.io/SudokuZen/og.png">
+
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="manifest" href="./manifest.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"></noscript>
+
+<!-- critical tokens inline so the first paint is already the right colour -->
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{--bg:#fcfcfd;--panel:#fff;--panel-2:#f6f7f9;--line:#e7e8ec;--rule:#c9ccd3;--text:#14161a;--muted:#676b74;--accent:#0d7d72;--accent-ink:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#08090a;--panel:#0e0f11;--panel-2:#121316;--line:#1e2024;--rule:#3a3f47;--text:#f4f5f6;--muted:#8b8f98;--accent:#35c9b8;--accent-ink:#06100e}}
+:root[data-theme="light"]{--bg:#fcfcfd;--panel:#fff;--panel-2:#f6f7f9;--line:#e7e8ec;--rule:#c9ccd3;--text:#14161a;--muted:#676b74;--accent:#0d7d72;--accent-ink:#fff}
+:root[data-theme="dark"]{--bg:#08090a;--panel:#0e0f11;--panel-2:#121316;--line:#1e2024;--rule:#3a3f47;--text:#f4f5f6;--muted:#8b8f98;--accent:#35c9b8;--accent-ink:#06100e}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Instrument Sans',system-ui,-apple-system,sans-serif;font-size:14.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+</style>
+<link rel="stylesheet" href="./sudoku.css">
+
+<!-- theme applied before first paint, so the toggle never flashes the wrong palette -->
+<script>
+(function(){try{var s=JSON.parse(localStorage.getItem('sudokuzen.v1')||'{}');if(s.theme==='light'||s.theme==='dark')document.documentElement.dataset.theme=s.theme;}catch(e){}})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://jgohil07.github.io/SudokuZen/#website",
+      "url": "https://jgohil07.github.io/SudokuZen/",
+      "name": "Sudoku Zen",
+      "description": "Free online Sudoku with four difficulty levels, pencil marks, hints and a daily puzzle.",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "VideoGame",
+      "@id": "https://jgohil07.github.io/SudokuZen/#game",
+      "name": "Sudoku Zen",
+      "url": "https://jgohil07.github.io/SudokuZen/",
+      "description": "A minimalist online Sudoku game. Four difficulty levels, pencil marks, a hint budget, live conflict highlighting and a daily puzzle. Every puzzle is verified to have exactly one solution. No sign-up and no account required; progress is stored in your own browser.",
+      "applicationCategory": "GameApplication",
+      "gamePlatform": "Web browser",
+      "genre": ["Puzzle", "Logic"],
+      "operatingSystem": "Any",
+      "isAccessibleForFree": true,
+      "author": { "@type": "Person", "name": "Jay" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to play Sudoku",
+      "description": "Fill a 9x9 grid so that every row, column and 3x3 box contains the digits 1 to 9 exactly once.",
+      "step": [
+        { "@type": "HowToStep", "name": "Scan for forced cells", "text": "Look for an empty cell where eight of the nine digits already appear in its row, column or box. Only one digit can go there." },
+        { "@type": "HowToStep", "name": "Find hidden singles", "text": "Pick a digit and a box. If only one empty cell in that box can legally take the digit, it belongs there even if that cell has several candidates." },
+        { "@type": "HowToStep", "name": "Use pencil marks", "text": "Note the possible digits in each empty cell. As you place numbers, candidates disappear and forced cells reveal themselves." },
+        { "@type": "HowToStep", "name": "Work the tight units", "text": "Concentrate on rows, columns and boxes that are already nearly full, since they constrain the remaining digits the most." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is Sudoku Zen free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely. There is no sign-up, no account, no payment and no advertising. The whole game runs in your browser." } },
+        { "@type": "Question", "name": "Does every puzzle have exactly one solution?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every puzzle is generated by removing one cell at a time and checking after each removal that exactly one solution remains. A puzzle is only served once that check passes." } },
+        { "@type": "Question", "name": "Is my progress saved?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Your current puzzle, notes, timer and statistics are stored in your browser's local storage. Nothing is sent to a server. When you come back, the game asks whether you want to resume or start fresh." } },
+        { "@type": "Question", "name": "Can I play offline?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. After your first visit the game is cached by a service worker, so it keeps working without a connection. Puzzles are generated on your device rather than downloaded." } },
+        { "@type": "Question", "name": "What is the daily puzzle?", "acceptedAnswer": { "@type": "Answer", "text": "One puzzle per difficulty per day, derived from the date, so everybody who plays the daily puzzle on a given day gets exactly the same grid." } },
+        { "@type": "Question", "name": "Does it work on phones?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The layout adapts to phones, tablets and desktops, including landscape, and it can be added to your home screen to run like an app." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<svg style="display:none" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.1v13.8c0 .8.9 1.3 1.5.8l10-6.9a1 1 0 0 0 0-1.6l-10-6.9c-.6-.5-1.5 0-1.5.8z"/></symbol>
+<symbol id="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></symbol>
+<symbol id="i-erase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18.4 9.6 12.8 4a2 2 0 0 0-2.8 0L3.6 10.4a2 2 0 0 0 0 2.8L8 17.6h6.6l3.8-3.8a2 2 0 0 0 0-2.8z"/><path d="M9 20h11M7.5 12.5 13 18"/></symbol>
+<symbol id="i-pencil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.8 4.2a2 2 0 0 1 2.8 0l2.2 2.2a2 2 0 0 1 0 2.8L8.4 20.6 3 21l.4-5.4z"/><path d="m13.5 5.5 5 5"/></symbol>
+<symbol id="i-marks" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></symbol>
+<symbol id="i-hint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.5.4.8 1 .9 1.6l.1.6h5.2l.1-.6c.1-.6.4-1.2.9-1.6A6 6 0 0 0 12 3z"/></symbol>
+<symbol id="i-undo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h11a6 6 0 0 1 0 12H8"/><path d="m7 4-4 4 4 4"/></symbol>
+<symbol id="i-redo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8H10a6 6 0 0 0 0 12h6"/><path d="m17 4 4 4-4 4"/></symbol>
+<symbol id="i-new" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v6h-6"/></symbol>
+<symbol id="i-daily" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+<symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.6 6.8-4M8.6 13.4l6.8 4"/></symbol>
+</defs></svg>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="./" aria-label="Sudoku Zen home">
+      <span class="mark" aria-hidden="true">&#9638;</span>
+      <span class="brand-name">Sudoku Zen</span>
+    </a>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch colour theme">
+      <svg id="themeIcon" aria-hidden="true"><use href="#i-moon"></use></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <h1 class="sr-only">Sudoku Zen — free online Sudoku</h1>
+
+    <noscript>
+      <p style="border:1px solid var(--line);border-radius:11px;padding:13px;background:var(--panel)">
+        Sudoku Zen generates its puzzles in your browser, so JavaScript needs to be enabled to play.
+        Everything below still explains how the game works.
+      </p>
+    </noscript>
+
+    <section class="game" id="game" aria-label="Sudoku game">
+      <div class="statusbar">
+        <div class="seg" id="difficulty" role="group" aria-label="Difficulty">
+          <button type="button" data-diff="Easy" aria-pressed="false">Easy</button>
+          <button type="button" data-diff="Medium" aria-pressed="true">Medium</button>
+          <button type="button" data-diff="Hard" aria-pressed="false">Hard</button>
+          <button type="button" data-diff="Expert" aria-pressed="false">Expert</button>
+        </div>
+        <div class="meter">
+          <span class="badge" id="dailyBadge" hidden>Daily</span>
+          <span class="slot"><span class="label">Err</span><span class="val" id="mMistakes">0/3</span></span>
+          <span class="slot"><span class="label">Hint</span><span class="val" id="mHints">4</span></span>
+          <div class="clock">
+            <span class="t" id="mTime" aria-live="off">00:00</span>
+            <button type="button" id="pauseBtn" aria-label="Pause the timer">
+              <svg id="pauseIcon" aria-hidden="true"><use href="#i-pause"></use></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="board-wrap" id="boardWrap">
+        <div class="board" id="board" role="grid" aria-label="Sudoku board"></div>
+        <div class="curtain">
+          <div class="inner">
+            <p class="k">Paused</p>
+            <button class="btn primary" type="button" id="resumeBtn">Resume</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pad" id="pad" role="group" aria-label="Number pad"></div>
+
+      <div class="tools">
+        <button class="tool" type="button" id="notesBtn" aria-pressed="false" title="Notes mode (N)">
+          <svg aria-hidden="true"><use href="#i-pencil"></use></svg><span>Notes</span>
+        </button>
+        <button class="tool" type="button" id="autoBtn" aria-pressed="false" title="Auto pencil marks (M)">
+          <svg aria-hidden="true"><use href="#i-marks"></use></svg><span>Auto</span>
+        </button>
+        <button class="tool" type="button" id="hintBtn" title="Hint (H)">
+          <svg aria-hidden="true"><use href="#i-hint"></use></svg><span>Hint</span><span class="cnt" id="hintCnt">4</span>
+        </button>
+        <button class="tool" type="button" id="undoBtn" title="Undo (Ctrl+Z)">
+          <svg aria-hidden="true"><use href="#i-undo"></use></svg><span>Undo</span>
+        </button>
+        <button class="tool" type="button" id="redoBtn" title="Redo (Ctrl+Shift+Z)">
+          <svg aria-hidden="true"><use href="#i-redo"></use></svg><span>Redo</span>
+        </button>
+      </div>
+
+      <div class="row-actions">
+        <button class="btn grow" type="button" id="newBtn">
+          <svg aria-hidden="true"><use href="#i-new"></use></svg>New puzzle
+        </button>
+        <button class="btn grow" type="button" id="dailyBtn">
+          <svg aria-hidden="true"><use href="#i-daily"></use></svg>Daily
+        </button>
+        <button class="btn grow" type="button" id="shareBtn">
+          <svg aria-hidden="true"><use href="#i-share"></use></svg>Share
+        </button>
+      </div>
+
+      <div class="stats" id="stats" aria-label="Your statistics"></div>
+    </section>
+
+    <!-- Real, crawlable content. This is what a search engine actually reads —
+         a single-page app shell gives it nothing. -->
+    <section class="prose">
+      <h2>Sudoku, without the clutter</h2>
+      <p>
+        Sudoku Zen is a free online Sudoku game that runs entirely in your browser. There is no sign-up,
+        no account and no advertising. Choose a difficulty, and a fresh grid is generated on your own
+        device in a few milliseconds. Your puzzle, your pencil marks and your statistics stay on your
+        machine — nothing is uploaded anywhere.
+      </p>
+      <p>
+        Every puzzle is checked to have <strong>exactly one solution</strong>. The generator removes one
+        clue at a time and re-solves the grid after each removal, keeping the removal only when a single
+        solution still remains. That matters: a puzzle with two solutions can be filled in correctly and
+        still be marked wrong.
+      </p>
+
+      <h2>How to play</h2>
+      <p>
+        Fill the 9&times;9 grid so every row, every column and every 3&times;3 box contains the digits
+        1 to 9 exactly once. The digits printed when the puzzle starts are fixed and cannot be changed.
+      </p>
+      <ul>
+        <li><strong>Scan for forced cells.</strong> Find an empty cell where eight of the nine digits already appear in its row, column or box. Only one digit can go there.</li>
+        <li><strong>Look for hidden singles.</strong> Take a digit and a box. If only one empty cell in that box can legally hold it, it belongs there — even if that cell still has several candidates.</li>
+        <li><strong>Use pencil marks.</strong> Jot the possible digits into each empty cell. As you place numbers, candidates vanish and forced cells surface on their own.</li>
+        <li><strong>Work the tight units.</strong> Rows, columns and boxes that are nearly full constrain the remaining digits the most, so they break open first.</li>
+      </ul>
+
+      <h2>Difficulty levels</h2>
+      <table class="levels">
+        <thead><tr><th>Level</th><th>Starting clues</th><th>What it asks of you</th></tr></thead>
+        <tbody>
+          <tr><td>Easy</td><td>40&ndash;45</td><td>Forced cells almost all the way through. A good place to learn the scan.</td></tr>
+          <tr><td>Medium</td><td>32&ndash;36</td><td>Hidden singles become necessary. Pencil marks start to earn their keep.</td></tr>
+          <tr><td>Hard</td><td>26&ndash;29</td><td>Sustained candidate tracking. Expect to pause and think.</td></tr>
+          <tr><td>Expert</td><td>23&ndash;28</td><td>Long deduction chains and very little given away. Notes are essential.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Keyboard shortcuts</h2>
+      <p>
+        <kbd>1</kbd>&ndash;<kbd>9</kbd> place a digit &middot;
+        <kbd>Shift</kbd>+<kbd>1</kbd>&ndash;<kbd>9</kbd> toggle a pencil mark &middot;
+        <kbd>0</kbd> <kbd>Backspace</kbd> <kbd>Delete</kbd> erase &middot;
+        arrow keys or <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> move &middot;
+        <kbd>N</kbd> notes &middot; <kbd>M</kbd> auto marks &middot; <kbd>H</kbd> hint &middot;
+        <kbd>Ctrl</kbd>+<kbd>Z</kbd> undo &middot; <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> redo &middot;
+        <kbd>Space</kbd> pause &middot; <kbd>Esc</kbd> deselect.
+      </p>
+
+      <h2>Questions</h2>
+      <details class="faq"><summary>Is Sudoku Zen free?</summary><p>Yes, completely. There is no sign-up, no account, no payment and no advertising. The whole game runs in your browser.</p></details>
+      <details class="faq"><summary>Does every puzzle have exactly one solution?</summary><p>Yes. Every puzzle is generated by removing one cell at a time and checking after each removal that exactly one solution remains. A puzzle is only served once that check passes.</p></details>
+      <details class="faq"><summary>Is my progress saved?</summary><p>Yes. Your current puzzle, notes, timer and statistics are stored in your browser's local storage. Nothing is sent to a server. When you come back, the game asks whether you want to resume or start fresh.</p></details>
+      <details class="faq"><summary>Can I play offline?</summary><p>Yes. After your first visit the game is cached by a service worker, so it keeps working without a connection. Puzzles are generated on your device rather than downloaded.</p></details>
+      <details class="faq"><summary>What is the daily puzzle?</summary><p>One puzzle per difficulty per day, derived from the date itself, so everybody who plays the daily puzzle on a given day gets exactly the same grid.</p></details>
+      <details class="faq"><summary>Does it work on phones?</summary><p>Yes. The layout adapts to phones, tablets and desktops, including landscape, and it can be added to your home screen to run like an app.</p></details>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap fbar">
+    <span>Sudoku Zen &mdash; a quiet puzzle.</span>
+    <span class="sp"></span>
+    <span>From indie dev Jay</span>
+  </div>
+</footer>
+
+<!-- dialogs -->
+<div class="scrim" id="resumeDlg" role="dialog" aria-modal="true" aria-labelledby="resumeTitle">
+  <div class="sheet">
+    <h2 id="resumeTitle">Welcome back</h2>
+    <p>You left a puzzle unfinished.</p>
+    <p class="meta" id="resumeMeta"></p>
+    <div class="actions">
+      <button class="btn primary" type="button" id="resumeYes">Resume</button>
+      <button class="btn" type="button" id="resumeNo">Start fresh</button>
+    </div>
+  </div>
+</div>
+
+<div class="scrim" id="confirmDlg" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+  <div class="sheet">
+    <h2 id="confirmTitle">Discard this puzzle?</h2>
+    <p id="confirmBody">You have a puzzle in progress. Starting a new one will lose it.</p>
+    <div class="actions">
+      <button class="btn primary" type="button" id="confirmYes">Start new</button>
+      <button class="btn" type="button" id="confirmNo">Keep playing</button>
+    </div>
+  </div>
+</div>
+
+<div class="scrim" id="limitDlg" role="dialog" aria-modal="true" aria-labelledby="limitTitle">
+  <div class="sheet">
+    <h2 id="limitTitle">Three mistakes</h2>
+    <p>You can start this puzzle over, or carry on and finish it anyway.</p>
+    <div class="actions">
+      <button class="btn primary" type="button" id="limitRestart">Start over</button>
+      <button class="btn" type="button" id="limitContinue">Keep playing</button>
+    </div>
+  </div>
+</div>
+
+<div class="scrim" id="winDlg" role="dialog" aria-modal="true" aria-labelledby="winTitle">
+  <div class="sheet">
+    <div class="confetti" id="confetti" aria-hidden="true"></div>
+    <h2 id="winTitle">Solved</h2>
+    <p id="winSub">Nicely done.</p>
+    <div class="summary" id="winSummary"></div>
+    <div class="actions">
+      <button class="btn primary" type="button" id="winAgain">Play again</button>
+      <button class="btn" type="button" id="winClose">Close</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script type="module" src="./sudoku-ui.js"></script>
+<script defer src="./sudoku-egg.js"></script>
+</body>
+</html>

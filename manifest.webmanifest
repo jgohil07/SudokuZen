@@ -1,0 +1,18 @@
+{
+  "name": "Sudoku Zen",
+  "short_name": "Sudoku Zen",
+  "description": "A minimalist Sudoku game. Four difficulties, pencil marks, hints and a daily puzzle. No sign-up, plays offline.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#fcfcfd",
+  "theme_color": "#0d7d72",
+  "categories": ["games", "puzzle", "education"],
+  "icons": [
+    { "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "./apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

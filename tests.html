@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sudoku Zen tests</title>
+<style>
+  :root { --bg:#fcfcfd; --panel:#fff; --line:#e7e8ec; --text:#14161a; --muted:#676b74;
+          --good:#0d7d72; --bad:#c0392f; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#08090a; --panel:#0e0f11; --line:#1e2024; --text:#f4f5f6; --muted:#8b8f98;
+            --good:#35c9b8; --bad:#ff6b5e; }
+  }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+         font-size:13px; line-height:1.65; padding:24px; }
+  .wrap { max-width:760px; margin:0 auto; }
+  h1 { font-size:17px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 18px; }
+  h2 { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);
+       margin:22px 0 6px; font-weight:500; }
+  p { margin:1px 0; white-space:pre-wrap; }
+  .ok { color:var(--good); }
+  .bad { color:var(--bad); font-weight:600; }
+  .note { color:var(--muted); }
+  #summary { display:block; border:1px solid var(--line); border-radius:11px; background:var(--panel);
+             padding:13px; margin:18px 0; font-size:15px; font-weight:600; }
+  a { color:var(--good); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Sudoku Zen — test suite</h1>
+  <p class="sub">Runs in the browser, no tooling. <a href="./">Back to the game</a> ·
+     <a href="?n=100">run 100 puzzles per difficulty</a></p>
+  <span id="summary" class="note">running…</span>
+  <div id="out"></div>
+</div>
+<script type="module" src="./tests.js"></script>
+</body>
+</html>
