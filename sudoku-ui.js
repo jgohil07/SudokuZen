@@ -467,10 +467,14 @@ function onKey(ev) {
   if (openDialog) return;
 
   const k = ev.key;
+  /* With Shift held, ev.key is the shifted symbol ('%' for Shift+5 on a US
+     layout), so fall back to the physical key to find the digit. */
+  const phys = /^(?:Digit|Numpad)([1-9])$/.exec(ev.code || '');
+  const digit = k.length === 1 && k >= '1' && k <= '9' ? k : phys ? phys[1] : '';
 
-  if (k >= '1' && k <= '9') {
+  if (digit) {
     ev.preventDefault();
-    const n = +k;
+    const n = +digit;
     if (ev.shiftKey) {
       const i = state.selected;
       if (i >= 0 && !state.givens[i] && !isPaused()) { S.toggleNote(i, n); render(); }

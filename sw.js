@@ -4,7 +4,7 @@
    are served cache-first, and the browser only re-runs install when sw.js itself
    changes — so if the version is left alone after editing the CSS, a returning
    visitor gets the new HTML with the old CSS for one load. */
-const CACHE = 'sudokuzen-v2';
+const CACHE = 'sudokuzen-v3';
 const SHELL = [
   './',
   './index.html',
